@@ -1,6 +1,7 @@
 package functionalInterface;
 
 import java.util.function.DoubleBinaryOperator;
+import java.util.function.UnaryOperator;
 
 public class Main {
 
@@ -19,17 +20,15 @@ public class Main {
 
         DoubleBinaryOperator exponentiation = Math::pow;
 
-        DoubleBinaryOperator squareRoot = (a, b) -> Math.sqrt(x);
-
-        SquareRoot mySqrt = a -> Math.sqrt(x); //or SquareRoot mySqrt = Math::sqrt;
+        UnaryOperator<Double> squareRoot = a -> Math.sqrt(x);
 
         System.out.println("x + y = " + addition.applyAsDouble(x, y));
         System.out.println("x - y = " + subtraction.applyAsDouble(x, y));
         System.out.println("x * y = " + multiplication.applyAsDouble(x, y));
         System.out.println("x / y = " + division.applyAsDouble(x, y));
         System.out.println("x ^ y = " + exponentiation.applyAsDouble(x, y));
-        System.out.println("√x = " + squareRoot.applyAsDouble(x, y));
-        System.out.println("my sqrt: √x = " + mySqrt.calc(x));
+        System.out.println("√x = " + squareRoot.apply(x));
 
     }
+    
 }
